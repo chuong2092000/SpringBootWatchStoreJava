@@ -1,0 +1,44 @@
+spring:
+  servlet:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 10MB
+  application:
+    name : SpringBootWatchStoreJava
+  datasource:
+    url: jdbc:postgresql://${POSTGRES.HOST:localhost}:${POSTGRES.PORT:5432}/${POSTGRES.DATABASE:java_spring_boot_watch_store}
+    username: ${POSTGRES.USER:postgres}
+    password: ${POSTGRES.PASSWORD:1234}
+    hikari:
+      connectionTimeout: ${DATASOURCE.CONNECTION.TIMEOUT:30000}
+      idleTimeout: ${DATASOURCE.IDLE.TIMEOUT:600000}
+      maxLifetime: ${DATASOURCE.MAX_LIFE_TIME:0}
+      minimum-idle: ${DATASOURCE.MINIMUM_IDLE:5}
+      maximum-pool-size: ${DATASOURCE.MAXIMUM_POOL_SIZE:50}
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    show-sql: ${JPA.SHOW_SQL:true}
+    properties:
+      hibernate:
+        format_sql: ${FORMAT_SQL:true}
+        use_nationalized_character_data: true
+        enable_lazy_load_no_trans: true
+    hibernate:
+      ddl-auto: update
+  mail:
+    host: ${EMAIL.HOST:smtp.gmail.com}
+    port: ${EMAIL.PORT:587}
+    username: ${EMAIL.USERNAME:chuonggiang2209@gmail.com}
+    password: ${EMAIL.PASSWORD:bdhjxkxzotkrmpqu}
+    properties:
+      mail:
+        smtp:
+          auth: ${EMAIL.AUTH:true}
+          connection-timeout: 5000
+          timeout: 3000
+          writeTimeout: 5000
+          starttls:
+            enable: ${EMAIL.ENABLE:true}
+
+jwt:
+  secret-key: Y1uK2PPMqLZA2Dqo2KO6/L00GyEZ4J37uzblOeFW18w=
